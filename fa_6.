@@ -1,0 +1,38 @@
+import time
+
+def iterative_exponent(base, exponent):
+    result = 1
+    for i in range(exponent):
+        result *= base
+    return result
+
+
+def recursive_exponent(base, exponent):
+    if exponent == 0:
+        return 1
+    elif exponent == 1:
+        return base
+    else:
+        return base * recursive_exponent(base, exponent-1)
+
+
+# Take user input for base and exponent
+base = int(input("Enter the base: "))
+exponent = int(input("Enter the exponent: "))
+
+# Calculate the exponent using iteration and measure the rendering time
+start_time_iter = time.time()
+result_iter = iterative_exponent(base, exponent)
+end_time_iter = time.time()
+render_time_iter = end_time_iter - start_time_iter
+
+# Calculate the exponent using recursion and measure the rendering time
+start_time_rec = time.time()
+result_rec = recursive_exponent(base, exponent)
+end_time_rec = time.time()
+render_time_rec = end_time_rec - start_time_rec
+
+
+# Print the results and rendering time for each calculation
+print(f"{base} raised to the power of {exponent} using iteration is {result_iter}. Rendering time: {render_time_iter} seconds.")
+print(f"{base} raised to the power of {exponent} using recursion is {result_rec}. Rendering time: {render_time_rec} seconds.")
