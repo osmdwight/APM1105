@@ -1,0 +1,64 @@
+---
+title: "Formative Assesment 2"
+author: "Dwight Gonzales"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+date: "2024-02-17"
+---
+
+# Number 2
+
+```{r}
+# Generate a random sequence
+r <- sample(c("hh", "tt", "ht", "th"), 100, TRUE)
+
+# Calculate the frequency of each outcome
+f <- table(r) / 100
+
+# Calculate the relative frequencies as percentages
+p <- f * 100
+
+# Print the generated random sequence
+cat("Generated Random Sequence:\n")
+cat(r, sep = ", ")
+
+# Print the relative frequencies
+cat("\nRelative Frequencies:\n")
+cat(round(f, digits = 2), "\n")
+
+# Print the relative frequencies as percentages
+cat("Relative Frequencies as Percentages:\n")
+cat(paste(round(p, digits = 2), "%"), "\n")
+
+# Create a barplot
+barplot(f, main = "Results for Heads and Tails", xlab = "Head and Tail", ylab = "Frequency", col = c("red", "blue", "green", "purple"), names.arg = c("hh", "tt", "ht", "th"))
+```
+
+# Number 3
+
+```{r}
+# Generate a random sequence
+s = sample(c(1, 2, 3, 4, 5, 6), 600, TRUE)
+
+# Calculate the frequency of each outcome
+fr = table(s) / 600
+
+# Calculate the relative frequencies as percentages
+pr = fr * 100
+
+# Print the generated random sequence
+cat("Generated Random Sequence:")
+cat(s, sep = ", ")
+
+# Print the relative frequencies
+cat("Relative Frequencies:")
+cat(paste(round(fr, digits=2), "%"))
+
+# Print the relative frequencies as percentages
+cat("Relative Frequencies as Percentages:")
+cat(paste(round(pr, digits=2), "%"))
+
+# Create a barplot for the relative frequencies
+barplot(fr, main = "Results for dice", xlab = "Outcomes", ylab = "Relative Frequency", col = "skyblue", names.arg = unique(s))
